@@ -45,6 +45,6 @@ if __name__ == "__main__":
                     else:
                         break
 
-                Dataset = pd.DataFrame(dataset)
-                # print(dataset)
-                dataset.to_csv(f"{label}.csv", index=False)
+    Dataset = pd.DataFrame(dataset)
+    # print(dataset)
+    Dataset.to_csv("Training_Data.csv", index=False)
