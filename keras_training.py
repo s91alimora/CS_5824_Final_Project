@@ -13,20 +13,25 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from keras.utils.vis_utils import plot_model
-import keras_evaluation
+## import keras_evaluation
 
 start = time.time()
 
 #data preprocessing
-training_dataset = pd.DataFrame()
-training_files = glob.glob("Training_Data/*.csv")
-labels = []
-for file in training_files:
-    data = pd.read_csv(file)
-    filename = file.split(".")[0].split("\\")[1]
-    data['label'] = filename        #len(labels)/len(training_files)
-    labels.append(filename)
-    training_dataset = pd.concat([training_dataset,data],)
+## training_dataset = pd.DataFrame()
+## training_files = glob.glob("Training_Data/*.csv")
+## labels = []
+## for file in training_files:
+##     data = pd.read_csv(file)
+##     filename = file.split(".")[0].split("\\")[1]
+##    data['label'] = filename        #len(labels)/len(training_files)
+##    labels.append(filename)
+##    training_dataset = pd.concat([training_dataset,data],)
+
+training_dataset = pd.read_csv("/content/drive/MyDrive/Classes/CS_5824/CNST 5824 - Final project/WMSD Project/Training_Data.csv")
+cols = training_dataset.columns.to_list()
+cols[-1] = "label"
+training_dataset.columns = col
 
 training_dataset = training_dataset.sample(frac=1)                        #shuffle the dataset. frac=1 means random sampling will return 100% of the data
 print(training_dataset.head())
